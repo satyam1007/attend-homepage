@@ -26,6 +26,10 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
+        .ai-gradient-bg {
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+        }
+        
         .card-hover {
             transition: all 0.3s ease;
         }
@@ -66,20 +70,45 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Add this to your existing styles */
-@media (max-width: 640px) {
-    #schoolSelectorModal .school-option {
-        min-height: 140px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-}
-
-/* Prevent body scroll when modal is open */
-body.modal-open {
-    overflow: hidden;
-}
+        .ai-card {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+        }
+        
+        .ai-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(78, 205, 196, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0); }
+        }
+        
+        @media (max-width: 640px) {
+            #schoolSelectorModal .school-option {
+                min-height: 140px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+        
+        body.modal-open {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -96,6 +125,7 @@ body.modal-open {
                 
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#features" class="text-gray-600 hover:text-indigo-600 font-medium transition">Features</a>
+                    <a href="#ai-section" class="text-gray-600 hover:text-indigo-600 font-medium transition">AI Insights</a>
                     <a href="#how-it-works" class="text-gray-600 hover:text-indigo-600 font-medium transition">How It Works</a>
                     <a href="#schools" class="text-gray-600 hover:text-indigo-600 font-medium transition">For Schools</a>
                     <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
@@ -115,6 +145,7 @@ body.modal-open {
             <div id="mobileMenu" class="md:hidden hidden py-4 border-t">
                 <div class="flex flex-col space-y-4">
                     <a href="#features" class="text-gray-600 hover:text-indigo-600 font-medium">Features</a>
+                    <a href="#ai-section" class="text-gray-600 hover:text-indigo-600 font-medium">AI Insights</a>
                     <a href="#how-it-works" class="text-gray-600 hover:text-indigo-600 font-medium">How It Works</a>
                     <a href="#schools" class="text-gray-600 hover:text-indigo-600 font-medium">For Schools</a>
                     <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
@@ -149,6 +180,10 @@ body.modal-open {
                             <i class="fas fa-check-circle text-xl mr-3"></i>
                             <span>Works Offline</span>
                         </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-xl mr-3"></i>
+                            <span>AI-Powered Insights</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -164,40 +199,40 @@ body.modal-open {
                             
                             <div class="space-y-4">
                                 <button class="school-card bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-100 cursor-pointer w-full text-left" onclick="window.location.href='https://satyam1007.github.io/kinder-garden/'">
-    <div class="flex items-center">
-        <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-            <i class="fas fa-child text-xl"></i>
-        </div>
-        <div>
-            <h4 class="font-bold text-lg text-gray-800">Kindergarden</h4>
-            <p class="text-gray-600 text-sm">For preschool & kindergarden students</p>
-        </div>
-    </div>
-</button>
+                                    <div class="flex items-center">
+                                        <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                            <i class="fas fa-child text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800">Kindergarden</h4>
+                                            <p class="text-gray-600 text-sm">For preschool & kindergarden students</p>
+                                        </div>
+                                    </div>
+                                </button>
                                 
                                 <button class="school-card bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-100 cursor-pointer w-full text-left" onclick="window.location.href='https://satyam1007.github.io/primary-wing/'">
-    <div class="flex items-center">
-        <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-            <i class="fas fa-child text-xl"></i>
-        </div>
-        <div>
-            <h4 class="font-bold text-lg text-gray-800">Primary Wing</h4>
-            <p class="text-gray-600 text-sm">For elementary school</p>
-        </div>
-    </div>
-</button>
+                                    <div class="flex items-center">
+                                        <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                            <i class="fas fa-child text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800">Primary Wing</h4>
+                                            <p class="text-gray-600 text-sm">For elementary school</p>
+                                        </div>
+                                    </div>
+                                </button>
                                 
                                 <button class="school-card bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-100 cursor-pointer w-full text-left" onclick="window.location.href='https://satyam1007.github.io/attandance-web-app/'">
-    <div class="flex items-center">
-        <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-            <i class="fas fa-child text-xl"></i>
-        </div>
-        <div>
-            <h4 class="font-bold text-lg text-gray-800">Senior School</h4>
-            <p class="text-gray-600 text-sm">For high school & college</p>
-        </div>
-    </div>
-</button>
+                                    <div class="flex items-center">
+                                        <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                            <i class="fas fa-child text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800">Senior School</h4>
+                                            <p class="text-gray-600 text-sm">For high school & college</p>
+                                        </div>
+                                    </div>
+                                </button>
                             </div>
                             
                             <p class="text-gray-500 text-sm mt-6 text-center">Select your school type to launch the attendance system</p>
@@ -251,6 +286,124 @@ body.modal-open {
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-3">Performance Tracking</h3>
                     <p class="text-gray-600">Record exam marks, monitor progress, and identify students who need extra support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI Section -->
+    <section id="ai-section" class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-red-100 to-teal-100 text-gray-800 font-medium mb-4">
+                    <i class="fas fa-robot text-red-500 mr-2"></i> NEW AI-POWERED FEATURE
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">AI Attendance Insights</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Get intelligent predictions and analysis powered by artificial intelligence</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="ai-card rounded-2xl p-8 card-hover">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-gradient-to-r from-red-500 to-teal-400 text-white w-14 h-14 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-brain text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Smart Predictions</h3>
+                            <p class="text-gray-600">Our AI analyzes attendance patterns to predict which students might be at risk of falling behind.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-teal-500 mr-3"></i>
+                            <span class="text-gray-700">Predict attendance trends for upcoming weeks</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-teal-500 mr-3"></i>
+                            <span class="text-gray-700">Identify at-risk students early</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-teal-500 mr-3"></i>
+                            <span class="text-gray-700">Correlate attendance with academic performance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ai-card rounded-2xl p-8 card-hover">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-400 text-white w-14 h-14 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-chart-pie text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Pattern Analysis</h3>
+                            <p class="text-gray-600">Discover hidden patterns in attendance data to make informed decisions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                            <span class="text-gray-700">Analyze seasonal attendance patterns</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                            <span class="text-gray-700">Detect unusual absence patterns</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                            <span class="text-gray-700">Optimize school schedules based on data</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Demo Card -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 max-w-4xl mx-auto">
+                <div class="md:flex">
+                    <div class="md:w-2/3 p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Try Our AI Demo</h3>
+                        <p class="text-gray-600 mb-6">Experience how AI can transform your attendance management. Click below to see our AI-powered analysis in action.</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-lightbulb text-red-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Intelligent Insights</h4>
+                                    <p class="text-gray-600 text-sm">Get actionable recommendations</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-chart-bar text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Visual Analytics</h4>
+                                    <p class="text-gray-600 text-sm">Interactive charts and graphs</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AI Demo Button - This is where the AI link will be added -->
+                        <a href="https://example-ai-demo.attendeasy.com" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-teal-400 hover:from-red-600 hover:to-teal-500 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl ai-pulse">
+                            <i class="fas fa-robot mr-3"></i> Launch AI Demo
+                            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                        </a>
+                        
+                        <p class="text-gray-500 text-sm mt-4">Opens in a new window. No login required for demo.</p>
+                    </div>
+                    
+                    <div class="md:w-1/3 bg-gradient-to-br from-red-50 to-teal-50 flex items-center justify-center p-8">
+                        <div class="text-center">
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-r from-red-500 to-teal-400 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-ai text-white text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Powered by AI</h4>
+                            <p class="text-gray-600 text-sm">Advanced machine learning algorithms</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -454,8 +607,8 @@ body.modal-open {
                 <button id="ctaStartBtn" class="bg-white text-indigo-600 hover:bg-gray-100 font-bold py-4 px-10 rounded-lg text-lg transition duration-300 shadow-lg">
                     <i class="fas fa-rocket mr-2"></i> Start Free Now
                 </button>
-                <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-indigo-600 text-white font-bold py-4 px-10 rounded-lg text-lg transition duration-300">
-                    <i class="fas fa-question-circle mr-2"></i> Need Help?
+                <a href="https://example-ai-demo.attendeasy.com" target="_blank" class="bg-gradient-to-r from-red-500 to-teal-400 hover:from-red-600 hover:to-teal-500 text-white font-bold py-4 px-10 rounded-lg text-lg transition duration-300">
+                    <i class="fas fa-robot mr-2"></i> Try AI Demo
                 </a>
             </div>
             
@@ -471,9 +624,9 @@ body.modal-open {
                     <p class="opacity-90">Your data stays in your browser, completely private</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <i class="fas fa-file-export text-3xl mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2">Easy Export</h4>
-                    <p class="opacity-90">Export reports as PDF or CSV with one click</p>
+                    <i class="fas fa-robot text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">AI-Powered</h4>
+                    <p class="opacity-90">Get intelligent insights and predictions</p>
                 </div>
             </div>
         </div>
@@ -497,6 +650,7 @@ body.modal-open {
                     <h4 class="text-xl font-bold mb-4">Quick Links</h4>
                     <div class="flex flex-col space-y-2">
                         <a href="#features" class="text-gray-400 hover:text-white transition">Features</a>
+                        <a href="#ai-section" class="text-gray-400 hover:text-white transition">AI Insights</a>
                         <a href="#how-it-works" class="text-gray-400 hover:text-white transition">How It Works</a>
                         <a href="#schools" class="text-gray-400 hover:text-white transition">For Schools</a>
                         <button id="footerLaunchBtn" class="text-indigo-400 hover:text-indigo-300 transition font-medium">Launch Application</button>
@@ -513,43 +667,53 @@ body.modal-open {
     
     <!-- School Selection Modal (hidden initially) -->
     <div id="schoolSelectorModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden p-4">
-    <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
-        <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl z-10">
-            <i class="fas fa-times"></i>
-        </button>
-        
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Select Your School Type</h2>
-        <p class="text-gray-600 mb-6 md:mb-8">Choose the version of AttendEasy that best fits your needs</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            <div class="school-option border-2 border-blue-200 rounded-xl p-4 md:p-6 text-center cursor-pointer hover:border-blue-400 transition" onclick="window.location.href='https://satyam1007.github.io/kinder-garden/'">
-                <div class="bg-blue-100 text-blue-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                    <i class="fas fa-child text-xl md:text-2xl"></i>
+        <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl z-10">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Select Your School Type</h2>
+            <p class="text-gray-600 mb-6 md:mb-8">Choose the version of AttendEasy that best fits your needs</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                <div class="school-option border-2 border-blue-200 rounded-xl p-4 md:p-6 text-center cursor-pointer hover:border-blue-400 transition" onclick="window.location.href='https://satyam1007.github.io/kinder-garden/'">
+                    <div class="bg-blue-100 text-blue-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                        <i class="fas fa-child text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-2">Kindergarden</h3>
+                    <p class="text-gray-600 text-xs md:text-sm">For preschool & kindergarden</p>
                 </div>
-                <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-2">Kindergarden</h3>
-                <p class="text-gray-600 text-xs md:text-sm">For preschool & kindergarden</p>
+                
+                <div class="school-option border-2 border-green-200 rounded-xl p-4 md:p-6 text-center cursor-pointer hover:border-green-400 transition" onclick="window.location.href='https://satyam1007.github.io/primary-wing/'">
+                    <div class="bg-green-100 text-green-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                        <i class="fas fa-pencil-alt text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-2">Primary Wing</h3>
+                    <p class="text-gray-600 text-xs md:text-sm">For elementary school</p>
+                </div>
+                
+                <div class="school-option border-2 border-purple-200 rounded-xl p-4 md:p-6 text-center cursor-pointer hover:border-purple-400 transition" onclick="window.location.href='https://satyam1007.github.io/attandance-web-app/'">
+                    <div class="bg-purple-100 text-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                        <i class="fas fa-graduation-cap text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-2">Senior School</h3>
+                    <p class="text-gray-600 text-xs md:text-sm">For high school & college</p>
+                </div>
             </div>
             
-            <div class="school-option border-2 border-green-200 rounded-xl p-4 md:p-6 text-center cursor-pointer hover:border-green-400 transition" onclick="window.location.href='https://satyam1007.github.io/primary-wing/'">
-                <div class="bg-green-100 text-green-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                    <i class="fas fa-pencil-alt text-xl md:text-2xl"></i>
+            <!-- AI Link in Modal -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <div class="text-center">
+                    <p class="text-gray-700 font-medium mb-4">Also try our AI-powered analytics:</p>
+                    <a href="https://example-ai-demo.attendeasy.com" target="_blank" class="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-teal-400 hover:from-red-600 hover:to-teal-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300">
+                        <i class="fas fa-robot mr-2"></i> Launch AI Demo
+                    </a>
                 </div>
-                <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-2">Primary Wing</h3>
-                <p class="text-gray-600 text-xs md:text-sm">For elementary school</p>
             </div>
             
-            <div class="school-option border-2 border-purple-200 rounded-xl p-4 md:p-6 text-center cursor-pointer hover:border-purple-400 transition" onclick="window.location.href='https://satyam1007.github.io/attandance-web-app/'">
-                <div class="bg-purple-100 text-purple-600 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                    <i class="fas fa-graduation-cap text-xl md:text-2xl"></i>
-                </div>
-                <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-2">Senior School</h3>
-                <p class="text-gray-600 text-xs md:text-sm">For high school & college</p>
-            </div>
+            <p class="text-gray-500 text-xs md:text-sm mt-6 md:mt-8 text-center">Your selection will determine the features and interface optimized for your school level</p>
         </div>
-        
-        <p class="text-gray-500 text-xs md:text-sm mt-6 md:mt-8 text-center">Your selection will determine the features and interface optimized for your school level</p>
     </div>
-</div>
     
     <!-- JavaScript -->
     <script>
@@ -566,6 +730,7 @@ body.modal-open {
             if (btn) {
                 btn.addEventListener('click', function() {
                     document.getElementById('schoolSelectorModal').classList.remove('hidden');
+                    document.body.classList.add('modal-open');
                 });
             }
         });
@@ -573,6 +738,7 @@ body.modal-open {
         // Close modal button
         document.getElementById('closeModalBtn').addEventListener('click', function() {
             document.getElementById('schoolSelectorModal').classList.add('hidden');
+            document.body.classList.remove('modal-open');
         });
         
         // School selection functionality
@@ -592,6 +758,7 @@ body.modal-open {
         document.getElementById('schoolSelectorModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 this.classList.add('hidden');
+                document.body.classList.remove('modal-open');
             }
         });
         
@@ -636,26 +803,14 @@ body.modal-open {
             observer.observe(el);
         });
         
-        // When opening modal
-document.getElementById('launchAppBtn').addEventListener('click', function() {
-    document.getElementById('schoolSelectorModal').classList.remove('hidden');
-    document.body.classList.add('modal-open');
-});
-
-// When closing modal
-document.getElementById('closeModalBtn').addEventListener('click', function() {
-    document.getElementById('schoolSelectorModal').classList.add('hidden');
-    document.body.classList.remove('modal-open');
-});
-
-// Close when clicking outside modal
-document.getElementById('schoolSelectorModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        this.classList.add('hidden');
-        document.body.classList.remove('modal-open');
-    }
-});
-
-</script>
+        // AI link functionality
+        document.querySelectorAll('a[href="https://example-ai-demo.attendeasy.com"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Optional: Add analytics or tracking here
+                console.log('AI demo link clicked');
+                // The link will open in new tab as specified by target="_blank"
+            });
+        });
+    </script>
 </body>
 </html>
